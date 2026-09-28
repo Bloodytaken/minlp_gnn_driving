@@ -1,0 +1,3 @@
+numpy==1.26.4
+torch==2.4.1
+pyscipopt==5.7.1
