@@ -104,17 +104,4 @@ lane scores form a three-way softmax with a zero score for staying.
 `structured_fixmap` converts confident complete decisions into binary
 assignments for a freshly built reduced MINLP.
 
-## Fixing controls
 
-Fixing uses the maximum softmax probability of a complete decision group.
-The thresholds stored by training are `--gamma-threshold=0.95` for regions,
-`--lane-threshold=0.95` for future lane decisions, and
-`--root-lane-threshold=1.01` to disable root-lane fixing. For unchanged model
-predictions, lower thresholds increase or preserve fix rate and higher
-thresholds decrease or preserve it. Confidence is not a correctness guarantee.
-
-The example accepts these flags as inference-only overrides and reports
-both decision-group and candidate-binary fix rates. The default example fixes
-4/7 groups (57.1%) and 16/22 candidate binaries (72.7%); these denominators
-exclude internal encoding binaries. See [the threshold guide](example/README.md#confidence-thresholds-and-fix-rate)
-for the exact candidate set, measured threshold sweep and training effects.
